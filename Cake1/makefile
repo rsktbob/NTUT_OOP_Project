@@ -7,10 +7,10 @@ gcovr: directories bin/ut_all_gcovr
 directories: 
 	mkdir -p bin
 
-bin/ut_all:
+bin/ut_all: test/ut_main.cpp
 		g++ -std=c++11 test/ut_main.cpp -o bin/ut_all -lgtest -lpthread
 
-bin/ut_all_gcovr:
+bin/ut_all_gcovr: test/ut_main.cpp
 	g++ -std=c++11 test/ut_main.cpp -o bin/ut_all_gcovr -lgtest -pthread --coverage -fkeep-inline-functions -fno-inline -fno-inline-small-functions -fno-default-inline -g -O0
 
 clean:
